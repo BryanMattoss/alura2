@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Startup Inclusiva</title>
+</head>
+<body>
+  <header>
+    <h1>Startup Inclusiva</h1>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sobre">
+      <h2>Sobre Nós</h2>
+      <p>Promovemos inclusão digital por meio de educação acessível.</p>
+    </section>
+
+    <section id="cursos">
+      <h2>Nossos Cursos</h2>
+      <button aria-expanded="false" aria-controls="detalhes-cursos" id="toggleCursos">Ver detalhes</button>
+      <div id="detalhes-cursos" hidden>
+        <ul>
+          <li>Curso de HTML Semântico</li>
+          <li>Curso de Design Inclusivo</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contato">
+      <h2>Entre em Contato</h2>
+      <form id="formulario">
+        <label for="nome">Nome (obrigatório):</label>
+        <input type="text" id="nome" required>
+
+        <label for="email">Email (obrigatório):</label>
+        <input type="email" id="email" required>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="#declaracao">Declaração de acessibilidade</a></p>
+  </footer>
+
+  <section id="declaracao">
+    <h2>Declaração de Acessibilidade</h2>
+    <p>Estamos comprometidos com a inclusão digital. Nosso site segue as diretrizes WCAG 2.1 e é acessível por teclado, leitores de tela e dispositivos móveis.</p>
+  </section>
+</body>
+</html>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #111;
+  }
+
+  a, button, input {
+    font-size: 1rem;
+  }
+
+  a:focus, button:focus, input:focus {
+    outline: 3px solid #005fcc;
+    outline-offset: 3px;
+  }
+
+  header, main, footer, section {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+
+  nav a {
+    color: #005fcc;
+    text-decoration: none;
+  }
+
+  nav a:hover, nav a:focus {
+    text-decoration: underline;
+  }
+
+  form label {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  form input {
+    display: block;
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  form button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+  }
+</style>
+<script>
+  const toggleBtn = document.getElementById('toggleCursos');
+  const detalhes = document.getElementById('detalhes-cursos');
+
+  toggleBtn.addEventListener('click', () => {
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+    detalhes.hidden = isExpanded;
+  });
+</script>
